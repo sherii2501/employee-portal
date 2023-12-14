@@ -1,0 +1,46 @@
+<div class="d-flex">
+    <div *ngIf="showSidebar" style="height: 95vh; width: 150px;"
+        class="sidebar bg-dark text-light p-3 d-flex flex-column">
+        <a style="text-decoration: none; margin-top: 10px; font-weight: bold;color: white;"
+            routerLink="/dashboard">Home</a>
+        <a style="text-decoration: none; margin-top: 10px; font-weight: bold;color: white;"
+            routerLink="/users">Users</a>
+            <button (click)="logout" class="btn" style="text-decoration: none; margin-top: 580px; font-weight: bold;color: white"routerLink="/"
+            >logout<i class="fa-solid fa-right-to-bracket"></i></button>
+    </div>
+    <div class="dashboard p-3 w-100">
+        <div class="dashboard p-3 w-100">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div style="height: 180px; background-image: url('https://cdn1.vectorstock.com/i/1000x1000/83/65/abstract-yellow-and-orange-color-background-vector-25228365.jpg'); background-size: cover;"
+                        class="admin-banner w-100 rounded d-flex align-items-center shadow">
+                        <h1 (click)="menuBtnClick()" class="ms-5 fw-bolder d-flex align-items-center text-light fs-3"><i
+                                class="fa-solid fa-bars"></i><span style="height: 40px; margin: 15px;">welcome
+                                {{admin_name}}</span></h1>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-lg-5 ">
+                            <!-- <h1>calender</h1> -->
+                            <mat-card class="demo-inline-calendar-card">
+                                <mat-calendar [(selected)]="selected"></mat-calendar>
+                            </mat-card>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-6 border rounded shadow">
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="height: 400px;" class="edit-admin border rounded shadow p-2 bg-warning">
+                        <app-update-admin (onAdminChange)="getUpdatedAdmin($event)"></app-update-admin>
+                    </div>
+                    <div style="height: 150px; background-image: url('https://cdn1.vectorstock.com/i/1000x1000/83/65/abstract-yellow-and-orange-color-background-vector-25228365.jpg');"
+                        class="mt-2 border rounded shadow p-2 bg-dark text-light d-flex align-items-center justify-content-center">
+                        <h2 class="fw-bolder"><i class="fa-solid fa-users"></i> Employees : {{employeeCount}} </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

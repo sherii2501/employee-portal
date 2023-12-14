@@ -1,0 +1,33 @@
+
+<div style="width: 100%; height: 100vh; background-image: url(https://t3.ftcdn.net/jpg/03/02/04/06/360_F_302040655_IEH9RyDlu7LL8YCLjgL1IskhrpOlmlSv.jpg);background-size: contain;" class="d-flex justify-content-center align-items-center">
+    <div style="width: 900px; " class="shadow p-5 row rounded bg-light align-items-center">
+        <div class="col-lg-8">
+            <img class="w-75" src="https://i.pinimg.com/originals/65/dc/a6/65dca69f78972935caf61580e7c17bd9.png" alt="image">
+        </div>
+        <div class="col-lg-4">
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+                <h1 class="fw-bolder mb-5">Login Form</h1>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" [(ngModel)]="email" email required #useremailinput="ngModel" >
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <!-- invalid email  -->
+                <div *ngIf="useremailinput.invalid && useremailinput.touched" class="mb-3 text-danger fw-bolder">
+                    Invalid Email!!
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password" required pattern="[a-zA-Z0-9]*" minlength="3" #userpassword="ngModel">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <!-- invalid password  -->
+                <div *ngIf="userpassword.invalid && userpassword.touched" class="mb-3 text-danger fw-bolder">
+                    Invalid Password!!
+                </div>
+                  <div class="d-grid">
+                      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+
+</div>
